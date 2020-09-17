@@ -12,23 +12,19 @@ const mockAPIResponse = require('./mockAPI.js')
 
 const app = express()
 
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
 
-var cors = require('cors')
-
-app.use(cors())
-    // to use json
 app.use(bodyParser.json())
-    // to use url encoded values
-app.use(bodyParser.urlencoded({
-    extended: true
-}))
+app.use(bodyParser.urlencoded({extended: true}))
+
+var cors = require('cors');
+app.use(cors());
 
 app.use(express.static('dist'))
 
 console.log(JSON.stringify(mockAPIResponse))
 
-console.log(__dirname)
+// console.log(__dirname)
 
 app.get('/', function (req, res) {
     //res.sendFile(path.resolve('src/client/views/index.html'))
