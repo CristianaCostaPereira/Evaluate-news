@@ -1,7 +1,10 @@
 const dotenv = require('dotenv');
 dotenv.config();
-var textapi = { application_key: process.env.API_KEY }
-//console.log(`API key is ${process.env.API_KEY}`);
+const textapi = {
+    application_key: process.env.API_KEY
+}
+
+console.log(`API key is ${process.env.API_KEY}`);
 
 var path = require('path')
 const express = require('express')
@@ -9,9 +12,17 @@ const mockAPIResponse = require('./mockAPI.js')
 
 const app = express()
 
-// const textapi = new meaningCloudApi({
-//     application_key: process.env.API_KEY
-// });
+var bodyParser = require('body-parser')
+
+var cors = require('cors')
+
+app.use(cors())
+    // to use json
+app.use(bodyParser.json())
+    // to use url encoded values
+app.use(bodyParser.urlencoded({
+    extended: true
+}))
 
 app.use(express.static('dist'))
 
