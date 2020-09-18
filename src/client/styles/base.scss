@@ -2,6 +2,11 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    color: rgb(0 0 0);
+    background-image: url(http://lol-stats.net/uploads/FpuvHt29W2bG6KPWKQ5ybcEW63BfFf2dIWIfbwjq.jpeg);
 }
 
 main {
