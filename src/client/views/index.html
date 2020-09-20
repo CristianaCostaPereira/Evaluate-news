@@ -1,38 +1,61 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html>
     <head>
         <meta charset="utf-8">
-        <title>Test</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>News Article Evaluation</title>
+
+        <script src="https://kit.fontawesome.com/e8d5dc1da5.js" crossorigin="anonymous"></script>
     </head>
 
     <body>
 
         <header>
             <div class="">
-                Logo
+                <i class="far fa-newspaper fa-3x"></i>
+                News
             </div>
             <div class="">
-                navigation
+                Navigation
             </div>
         </header>
 
         <main>
             <section>
                 <form class="" onsubmit="return Client.handleSubmit(event)">
-                    <input id="name" type="text" name="input" value="" onblur="return Client.handleSubmit(event)" placeholder="Name">
-                    <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">
+                    <label for="url">Evaluate URL here:</label>
+                    <input type="text" id="url" name="input" value="" onblur="return Client.handleSubmit(event)" placeholder="Enter url">
+                    <div id="error-message"></div>
+                    <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
                 </form>
             <section>
 
             <section>
-                <strong>Form Results:</strong>
-                <div id="results"></div>
+                <strong>Outcome:</strong>
+                <div id="results">
+                    <div id="polarity"></div>
+                    <div id="polarity-confidence"></div>
+                    <div id="subjectivity"></div>
+                    <div id="sub-confidence"></div>
+                </div>
             </section>
         </main>
 
         <footer>
-            <p>This is a footer</p>
+            <span>Copyright <i class="far fa-copyright fa-1x"></i> 2020 by Cristiana Pereira | All rights reserved</span>
         </footer>
+
+        <script>
+            // Verify that the service workers are supported
+            if ('serviceWorker' in navigator) {
+                // Use the window load event to keep the page load performant
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js');
+                });
+            }
+        </script>
 
     </body>
 </html>
