@@ -41,15 +41,22 @@ app.listen(8081, function () {
 })
 
 app.post('/evaluate-articles', async (req, res) => {
-    
-    const result = await axios.post(
-        // `http://api.meaningcloud.com/sentiment-2.1?key=${process.env.API_KEY}&lang=en&txt=Main dishes were quitdddde good, but desserts were too sweet for me.`
-        `http://api.meaningcloud.com/sentiment-2.1?key=a4b2aedd784e251f2ad8dfe200b28efe&lang=en&txt=Main dishes were quitdddde good, but desserts were too sweet for me.`
-    );
 
+    let params = {
+        key: 'a4b2aedd784e251f2ad8dfe200b28efe',
+        lang: 'en',
+        url: req.body.formUrl
+        // txt: req.body.formUrl
+    };
+    
+    const result = await axios({
+        url: 'http://api.meaningcloud.com/sentiment-2.1',
+        method: "post",
+        params: params,
+    })
+    
     const { data } = result;
     const { code } = data.status;
-
     const { score_tag } = data;
     const { agreement } = data;
     const { subjectivity } = data;
@@ -67,7 +74,3 @@ app.post('/evaluate-articles', async (req, res) => {
 
     res.send(sentiment);
 })
-
-
-
-
