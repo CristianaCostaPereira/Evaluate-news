@@ -1,10 +1,11 @@
+const axios = require("axios");
 const dotenv = require('dotenv');
 dotenv.config();
 
 const textapi = {
     application_key: process.env.API_KEY
 }
-
+console.log(process.env.API_KEY);
 var path = require('path')
 const express = require('express')
 const mockAPIResponse = require('./mockAPI.js')
@@ -39,22 +40,32 @@ app.listen(8081, function () {
     console.log('Example app listening on port 8081!')
 })
 
-app.post('/evaluate-articles', (req, res) => {
+app.post('/evaluate-articles', async (req, res) => {
+    
+    const result = await axios.post(
+        // `http://api.meaningcloud.com/sentiment-2.1?key=${process.env.API_KEY}&lang=en&txt=Main dishes were quitdddde good, but desserts were too sweet for me.`
+        `http://api.meaningcloud.com/sentiment-2.1?key=a4b2aedd784e251f2ad8dfe200b28efe&lang=en&txt=Main dishes were quitdddde good, but desserts were too sweet for me.`
+    );
 
-    let x = callMeaningCloudApi();
-    console.log(x);
-    res.send(x);
-    // textapi.evaluate({ url: req.body.formUrl }, (error, result) => {
-    //     if(error) {
-    //         console.log('Error during request')
-    //         res.send();
-    //         return;
-    //     }
+    const { data } = result;
+    const { code } = data.status;
 
-    //     console.log('Got result')
-        
-    //     res.send(result);
-    // })
+    const { score_tag } = data;
+    const { agreement } = data;
+    const { subjectivity } = data;
+    const { confidence } = data;
+    const { irony } = data;
+
+    // storing the api response
+    sentiment = {
+        score_tag,
+        agreement,
+        subjectivity,
+        confidence,
+        irony,
+    };
+
+    res.send(sentiment);
 })
 
 
