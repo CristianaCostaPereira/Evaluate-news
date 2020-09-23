@@ -27,6 +27,7 @@ async function handleSubmit(event) {
     updateUI(jsonResult)    
 }
 
+
 // P+: strong positive
 // P: positive
 // NEU: neutral
