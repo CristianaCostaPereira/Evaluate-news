@@ -1,16 +1,17 @@
 const axios = require("axios");
-const dotenv = require('dotenv');
-dotenv.config();
+const dotenv = require('dotenv').config({
+    path: '../../.env'
+});
 
-const textapi = {
-    application_key: process.env.API_KEY
-}
-console.log(process.env.API_KEY);
-var path = require('path')
-const express = require('express')
-const mockAPIResponse = require('./mockAPI.js')
+const apiKey = process.env.API_KEY;
 
-const app = express()
+console.log(apiKey);
+
+var path = require('path');
+const express = require('express');
+const mockAPIResponse = require('./mockAPI.js');
+
+const app = express();
 
 const bodyParser = require('body-parser');
 
@@ -20,11 +21,8 @@ app.use(bodyParser.urlencoded({extended: true}))
 const cors = require('cors');
 app.use(cors());
 
-app.use(express.static('dist'))
-
-console.log(JSON.stringify(mockAPIResponse))
-
-// console.log(__dirname)
+app.use(express.static('dist'));
+console.log(JSON.stringify(mockAPIResponse));
 
 app.get('/', function (req, res) {
     //res.sendFile(path.resolve('src/client/views/index.html'))
@@ -43,7 +41,7 @@ app.listen(8081, function () {
 app.post('/evaluate-articles', async (req, res) => {
 
     let params = {
-        key: 'a4b2aedd784e251f2ad8dfe200b28efe',
+        key: apiKey,
         lang: 'en',
         url: req.body.formUrl
         // txt: req.body.formUrl
