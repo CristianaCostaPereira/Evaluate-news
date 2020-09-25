@@ -1,4 +1,4 @@
-import { validateUrl } from "./js/validateUrl"
+import { validateUrl } from './js/validateUrl'
 import { handleSubmit } from './js/formHandler'
 
 import './styles/resets.scss';
