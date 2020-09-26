@@ -1,7 +1,5 @@
 // Import the js file to test
 import { handleSubmit } from '../formHandler';
-import { urlInput } from '../formHandler';
-
 
 describe("Testing the submit functionality", () => {
     test("Testing the handleSubmit() function", () => {
@@ -12,7 +10,4 @@ describe("Testing the submit functionality", () => {
         expect(typeof handleSubmit).toBe("function");
     });
 
-    test('Test the click enter', () => {
-        expect(urlInput).toBe(undefined);
-    });
 });
