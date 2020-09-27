@@ -10,3 +10,7 @@ Besides **Webpack** we also used:
 - Sass,
 - Loaders and Plugins,
 - Service workers
+
+## Test outcome with JEST
+
+Test results can be verify in the commited image with the name: Last test.png
