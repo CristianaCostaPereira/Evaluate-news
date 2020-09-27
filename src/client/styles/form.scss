@@ -2,6 +2,11 @@ form {
     border: 1px solid #545454;
     border-radius: 3px;
     padding: 40px;
+    background: #ffffff61;
+}
+
+label {
+    font-weight: 700;
 }
 
 input {
@@ -9,4 +14,14 @@ input {
     width: 100%;
     line-height: 16px;
     margin: 10px 0;
+}
+
+.outcome {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+#results {
+    background: #ffffff61;
+    line-height: 30px;
 }

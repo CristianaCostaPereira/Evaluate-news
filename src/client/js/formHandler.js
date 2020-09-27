@@ -6,7 +6,7 @@ async function handleSubmit(event) {
     let formUrl = document.getElementById('url').value;
     
     if (!validateUrl(formUrl)) {
-        document.getElementById("error-message").innerHTML = "Valid URL must be provided: www.example.com";
+        document.getElementById("error-message").innerHTML = "Please, enter a valid URL, like: www.example.com";
         return;
 
     } else {

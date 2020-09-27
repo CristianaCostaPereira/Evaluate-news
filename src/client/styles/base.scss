@@ -11,11 +11,32 @@ body {
     background-repeat: no-repeat;
 }
 
+.news {
+    font-size: 30px;
+    padding-top: 50px;
+
+}
+
+.validation {
+    font-weight: 700;
+    position: absolute;
+    top: 0;
+    right: 50px;
+    bottom: 10px;
+    padding-top: 10px;
+}
+
+#error-message {
+    color: red;
+    font-size: 12px;
+    font-weight: 700;
+}
+
 main {
     flex: 2;
 }
 
 section {
     max-width: 800px;
-    margin: 50px auto;
+    margin: 25px auto;
 }

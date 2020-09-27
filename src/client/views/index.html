@@ -13,11 +13,11 @@
     <body>
 
         <header>
-            <div class="">
-                <i class="far fa-newspaper fa-3x"></i>
-                News
+            <div class="news">
+                <i class="fab fa-earlybirds fa-3x"></i>
+                Url
             </div>
-            <div class="">
+            <div class="validation">
                 URL validation
             </div>
         </header>
@@ -28,12 +28,12 @@
                     <label for="url">Evaluate URL here:</label>
                     <input type="text" id="url" name="input" value="" onblur="return Client.handleSubmit(event)" placeholder="Enter url">
                     <div id="error-message"></div>
-                    <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
+                    <input type="submit" name="" value="Submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
                 </form>
             <section>
 
             <section>
-                <strong>Outcome:</strong>
+                <strong class="outcome">Outcome:</strong>
                 <div id="results">
                     <div id="score-tag"></div>
                     <div id="agreement"></div>
