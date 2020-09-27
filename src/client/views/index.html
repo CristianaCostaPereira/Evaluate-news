@@ -47,5 +47,15 @@
         <footer>
             <span>Copyright <i class="far fa-copyright fa-1x"></i> 2020 by Cristiana Pereira | All rights reserved</span>
         </footer>
+
+        <script>
+            // Check that service workers are supported
+            if ('serviceWorker' in navigator) {
+                // Use the window load event to keep the page load performant
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('service-worker.js');
+                });
+            }
+        </script>
     </body>
 </html>
